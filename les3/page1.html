@@ -7,8 +7,19 @@
     <title>Cтраница 1</title>
 </head>
 <body>
+    <nav class="navbar bg-body-tertiary">       <!--По идеи если сайт был бы длинным, то данный логотип ввел в начало страницы-->
+        <div class="container-fluid">           <!--По идеи если сайт был бы длинным, то данный логотип ввел в начало страницы-->
+          <a class="navbar-brand" href="#">
+            <img src="C:\module4\les3\Capy.webp" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            capybara
+          </a>          <!--По идеи если сайт был бы длинным, то данный логотип ввел в начало страницы-->
+        </div>
+    </nav>
+    
     <a href="page2.html" target="_blank">Ссылка на страицу page2.html</a>
+
     <form action="">
+        
         <div class="mb-3">
             <label class="form-label" for="field1">простое текстовое поле</label>
             <input type="text" class="form-control" id="field1">
@@ -26,6 +37,11 @@
 
         <input type="button" value="Отправить форму" class="btn btn-primary">
 
+        <div class="mb-3">
+            <label class="form-label" for="field4"></label>
+            <textarea rows="5" cols="60" name="text" placeholder="Enter text"></textarea>
+        </div>
+    
     </form>
 </body>
 </html>
