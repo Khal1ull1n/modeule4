@@ -1,8 +1,24 @@
 from django.db import models
 from django.utils.html import format_html
 from django.contrib import admin
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class Advertisement(models.Model):
+
+    user = models.ForeignKey(
+        User,
+        verbose_name='Пользователь',
+        on_delete=models.CASCADE
+    )
+
+    image = models.ImageField(
+        'изображение',
+        upload_to='advertisements/'
+    )
+
+
 
     title = models.CharField('заголовок', max_length=128)
 
@@ -36,6 +52,14 @@ class Advertisement(models.Model):
             )
         return self.updated_at.strftime("%d.%m.%Y в %H:%M:%S")
     
+    @admin.display(description="Фото")
+    def get_html_image(self):
+        if self.image:
+            return format_html(
+                '<img src="{}" style="max-width:80px; max-hight:80px"',
+                self.image.url
+            )
+
     def __str__(self):
         return f"Advertisement(id={self.id}, title={self.title}, price={self.price})"
     
